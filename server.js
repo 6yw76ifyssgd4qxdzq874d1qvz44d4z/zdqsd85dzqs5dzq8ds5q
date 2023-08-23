@@ -2,6 +2,7 @@
 var express = require('express')
 
 var server = express()
+var port = 8080
 
 var users = ["shadow.no.money", "test"]
 var bannis = ["127.0.1.1"]
@@ -16,6 +17,4 @@ server.get('/bannis', function (req, res) {
     res.status(200).send(bannis)
 });
 
-server.listen(8080, function() {
-    console.log('serv en écoute')
-})
+server.listen(process.env.PORT || port, () => console.log('serv en écoute'))
